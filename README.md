@@ -21,33 +21,43 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>High-Level Steps</h2>
 
-- Step 1
-- Step 2
-- Step 3
-- Step 4
+- Ping virtual machine within private network
+- Configure NSG
+- Observe denial of traffic
+- Monitor traffic
 
 <h2>Actions and Observations</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+![A](https://github.com/kennyfrantz/azure-network-protocols/assets/163783743/2612e1ab-9010-4328-962b-4907751df017)
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+I began this exercise by pinging another virtual machine within my private network to ensure connectivity.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+![Screen Shot 2024-03-29 at 11 13 36 AM](https://github.com/kennyfrantz/azure-network-protocols/assets/163783743/1546437b-87c9-4e29-b002-b0c05e182882)
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Next I went into the network security group settings.  Here I created a rule to block inbound ICMP traffic with a higher priority than the other rules.  This would ensure that it would stop the traffic.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+![Screen Shot 2024-03-29 at 11 16 15 AM](https://github.com/kennyfrantz/azure-network-protocols/assets/163783743/29019a81-e5a0-44b4-97ad-306cfb850bcb)
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+This image shows my NSG rule was successful in blocking the inbound traffic to this virtual machine.  It allowed me to see what would happen when I pinged it and received a timed out request while using WireShark as well as the command prompt.
 </p>
 <br />
+<p>
+  
+</p>
+
+![Screen Shot 2024-03-29 at 11 40 23 AM](https://github.com/kennyfrantz/azure-network-protocols/assets/163783743/d47420f9-7cb9-434d-849e-2905d4a1dd13)
+
+I practiced examining various protocols while utilizing WireShark.  Above is monitoring SSH traffic.
